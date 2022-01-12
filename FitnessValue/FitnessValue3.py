@@ -24,11 +24,11 @@ def CountStraightRoute():
             for k in range(1, SZ + 1):
                 if maze[i][j][k] == 1:
                     continue
-                if i == 0 or maze[i - 1][j][k] == 1 and vis[0][i][j][k] == 0:
+                if i == 1 or maze[i - 1][j][k] == 1 and vis[0][i][j][k] == 0:
                     res += walk(i, j, k, 1, 0, 0, 0)
-                if j == 0 or maze[i][j - 1][k] == 1 and vis[1][i][j][k] == 0:
+                if j == 1 or maze[i][j - 1][k] == 1 and vis[1][i][j][k] == 0:
                     res += walk(i, j, k, 0, 1, 0, 1)
-                if k == 0 or maze[i][j][k - 1] == 1 and vis[2][i][j][k]:
+                if k == 1 or maze[i][j][k - 1] == 1 and vis[2][i][j][k] == 0:
                     res += walk(i, j, k, 0, 0, 1, 2)
     return res
 
