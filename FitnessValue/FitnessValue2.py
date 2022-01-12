@@ -22,7 +22,7 @@ def CountCrossroads():
                     tx = i + a
                     ty = j + b
                     tz = k + c
-                    if Proper(tx, ty, tz) == False:
+                    if not Proper(tx, ty, tz):
                          continue
                     res += 1
     return res
