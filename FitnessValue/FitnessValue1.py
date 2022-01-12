@@ -26,7 +26,7 @@ def CountDistance():
             tx = x + a
             ty = y + b
             tz = z + c
-            if Proper(tx, ty, tz) == False:
+            if not Proper(tx, ty, tz):
                 continue
             qx.append(tx)
             qy.append(ty)
