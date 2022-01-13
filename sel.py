@@ -1,6 +1,6 @@
 import numpy as np
 import random as rd
-import ancestor_map_generating as gen
+import ancestor_map_gen as gen
 
 def select():
     pos = []
