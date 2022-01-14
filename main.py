@@ -1,7 +1,7 @@
 import gen
-from FitnessValue import FitnessValue1 as f1
-from FitnessValue import FitnessValue2 as f2
-from FitnessValue import FitnessValue3 as f3
+import FitnessValue1 as f1
+import FitnessValue2 as f2
+import FitnessValue3 as f3
 import sel
 import numpy as np
 import var
