@@ -7,6 +7,7 @@ print the maze
 
 ## main.py
 i. generate mazes
+ii. calculate the fitness values of the mazes
 
 ## gen.py
 use dfs to generate ancestor mazes
@@ -17,4 +18,4 @@ use dfs to generate ancestor mazes
 3. the number of straight routes (considering its length) <br>
 
 ## sel.py
-
+randomly pick two mazes to crossover(wheel selection)
