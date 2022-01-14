@@ -1,6 +1,7 @@
 import numpy as np
 import random as rd
-import ancestor_map_gen as gen
+import gen
+
 
 def select():
     pos = []
@@ -8,7 +9,7 @@ def select():
     for i in range(gen.num):
         s += gen.val[i]
         pos.append(s)
-        
+
     a = rd.random(0, s)
     l = 0
     r = gen.num
@@ -21,4 +22,3 @@ def select():
             l = m + 1
 
     return l
-

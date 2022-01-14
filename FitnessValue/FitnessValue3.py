@@ -1,9 +1,11 @@
 import numpy as np
+import var
 
 dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
-SZ = 20
+SZ = var.SZ
 vis = np.zeros((3, SZ + 1, SZ + 1, SZ + 1))
-maze = np.random.randint(2, size = (SZ + 1, SZ + 1, SZ + 1))
+maze = np.random.randint(2, size=(SZ + 1, SZ + 1, SZ + 1))
+
 
 def walk(x, y, z, dx, dy, dz, id):
     cnt = 0
@@ -17,7 +19,8 @@ def walk(x, y, z, dx, dy, dz, id):
         z += dz
     return cnt
 
-def CountStraightRoute():
+
+def count_straight_route():
     res = 0
     for i in range(1, SZ + 1):
         for j in range(1, SZ + 1):
@@ -32,4 +35,3 @@ def CountStraightRoute():
                     res += walk(i, j, k, 0, 0, 1, 2)
     return res
 
-print(CountStraightRoute())

@@ -1,17 +1,20 @@
 import numpy as np
+import var
 
 dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
-SZ = 20
-maze = np.random.randint(2, size = (SZ + 1, SZ + 1, SZ + 1))
+SZ = var.SZ
+maze = np.random.randint(2, size=(SZ + 1, SZ + 1, SZ + 1))
 
-def Proper(x, y, z):
+
+def proper(x, y, z):
     if x < 1 or x > SZ or y < 1 or y > SZ or z < 1 or z > SZ:
         return False
     elif maze[x][y][z] == 1:
         return False
     return True
 
-def CountCrossroads():
+
+def count_crossroads():
     res = 0
     for i in range(1, SZ + 1):
         for j in range(1, SZ + 1):
@@ -23,8 +26,7 @@ def CountCrossroads():
                     ty = j + b
                     tz = k + c
                     if not Proper(tx, ty, tz):
-                         continue
+                        continue
                     res += 1
     return res
 
-print(CountCrossroads())
