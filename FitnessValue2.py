@@ -9,8 +9,6 @@ maze = np.random.randint(2, size=(SZ + 1, SZ + 1, SZ + 1))
 def proper(x, y, z):
     if x < 1 or x > SZ or y < 1 or y > SZ or z < 1 or z > SZ:
         return False
-    elif maze[x][y][z] == 1:
-        return False
     return True
 
 
@@ -25,7 +23,7 @@ def count_crossroads(maze):
                     tx = i + a
                     ty = j + b
                     tz = k + c
-                    if not proper(tx, ty, tz):
+                    if not proper(tx, ty, tz) or maze[tx][ty][tz] == 1:
                         continue
                     res += 1
     return res
