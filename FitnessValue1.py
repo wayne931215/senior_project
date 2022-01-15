@@ -28,7 +28,7 @@ def count_distance(maze):
             tx = x + a
             ty = y + b
             tz = z + c
-            if maze[tx][ty][tz] == 1 or not proper(tx, ty, tz):
+            if not proper(tx, ty, tz) or maze[tx][ty][tz] == 1:
                 continue
             qx.append(tx)
             qy.append(ty)
