@@ -1,5 +1,6 @@
 import random
 import var
+import time
 
 """maze 即為生成的maze初代，其並沒有外牆(自行想像外面還有一層障礙物包裹住迷宮)，以1,1,1為起點，
 以(SZ, SZ, SZ)為終點，其ancestor_rate表示地圖中除了起點和終點外障礙物佔有的比例
@@ -8,6 +9,7 @@ import var
 
 ancestor_rate = 0.5
 SZ = var.SZ
+random.seed(time.time())
 
 # [[[0 for k in range(SZ)] for j in range(SZ)] for i in range(SZ)]
 # visited = [[0]*SZ for i in range(SZ)]

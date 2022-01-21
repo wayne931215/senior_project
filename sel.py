@@ -3,16 +3,16 @@ import random as rd
 import gen
 
 
-def select():
+def select(n, val1, val2, val3):
     pos = []
     s = 0
-    for i in range(gen.num):
-        s += gen.val[i]
+    for i in range(n):
+        s += val[i]
         pos.append(s)
 
     a = rd.random(0, s)
     l = 0
-    r = gen.num
+    r = n
     m = (l + r) // 2
 
     while l < r:
