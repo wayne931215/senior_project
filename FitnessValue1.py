@@ -19,6 +19,11 @@ def count_distance(maze):
     qy = [1]
     qz = [1]
     dis = np.zeros((SZ + 1, SZ + 1, SZ + 1))
+    for i in range(1, SZ + 1):
+        for j in range(1, SZ + 1):
+            for k in range(1, SZ + 1):
+                vis[i][j][k] = 0
+                
     vis[1][1][1] = 1
     while qx:
         x = qx.pop(0)

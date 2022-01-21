@@ -6,24 +6,21 @@ import var
 其SZ表示此正方體迷宮的邊長大小，兩者皆是可調整的參數。生成的初代保證起點到終點必有至少一條路
 """
 
-ancestor_rate = 0.6
+ancestor_rate = 0.5
 SZ = var.SZ
 
-isfind = 0
 # [[[0 for k in range(SZ)] for j in range(SZ)] for i in range(SZ)]
 # visited = [[0]*SZ for i in range(SZ)]
 maze = [[[0 for k in range(SZ+1)] for j in range(SZ+1)]
          for i in range(SZ+1)]
 visited = [[[0 for k in range(SZ+1)]
             for j in range(SZ+1)] for i in range(SZ+1)]
-isfind = 0
+isfind = 0.6
 
 
 def dfs(x, y, z):
     global isfind
     if isfind:
-        return
-    if x < 1 or x > SZ or y < 1 or y > SZ or z < 1 or z > SZ:
         return
     if visited[x][y][z] == 1:
         return
@@ -32,12 +29,18 @@ def dfs(x, y, z):
         return
 
     visited[x][y][z] = 1
-    dfs(x+1, y, z)
-    dfs(x-1, y, z)
-    dfs(x, y+1, z)
-    dfs(x, y-1, z)
-    dfs(x, y, z+1)
-    dfs(x, y, z-1)
+    if x < SZ:
+        dfs(x+1, y, z)
+    if x > 1:
+        dfs(x-1, y, z)
+    if y < SZ:
+        dfs(x, y+1, z)
+    if y > 1:
+        dfs(x, y-1, z)
+    if z < SZ:
+        dfs(x, y, z+1)
+    if z > 1:
+        dfs(x, y, z-1)
 
 
 def generate():
@@ -64,10 +67,4 @@ def generate():
             maze[z+1][y+1][x+1] = 1
         dfs(1, 1, 1)
         if isfind:
-            for i in range (SZ):
-                for j in range (SZ):
-                    for k in range(SZ):
-                        print(maze[i+1][j+1][k+1], end=' ')
-                    print() 
-                print()
             return maze
