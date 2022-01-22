@@ -3,14 +3,11 @@
 
 ## module
 the size of maze (SZ)
+the number of mazes (N)
 print the maze
 
-## main.py
-i. generate mazes
-ii. calculate the fitness values of the mazes
-
 ## gen.py
-use dfs to generate ancestor mazes
+use dfs to generate ancestor mazes 
 
 ## Fitness value
 1. the distance from S to E <br>
@@ -19,3 +16,14 @@ use dfs to generate ancestor mazes
 
 ## sel.py
 randomly pick two mazes to crossover(wheel selection)
+
+## crs.py
+first denote S as (1, 1, 1), E as (SZ + 1, SZ + 1, SZ + 1) in the maze
+i. pick 2 mazes (A and B) <br>
+ii. randomly pick a 2D plain in the maze and rebuild the plain <br>
+iii. maze A builds up the upper part of the new maze; maze B builds up the lower part <br>
+iv. repeat step i. and ii. until S and E are connected <br>
+
+## mut.py
+i. find the coordinates of spaces that are only reachable through one direction <br>
+ii. randomly pick one and turn it into wall <br>
