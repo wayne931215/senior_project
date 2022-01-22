@@ -1,4 +1,5 @@
 SZ = 5
+N = 20
 
 def print_maze(maze):
     for i in range(1, SZ + 1):
