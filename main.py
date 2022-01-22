@@ -6,7 +6,7 @@ import sel
 import numpy as np
 import var
 
-num = 20
+num = var.N
 SZ = var.SZ
 maze = np.zeros((num, SZ + 1, SZ + 1, SZ + 1))
 Maze = np.zeros((num, SZ + 1, SZ + 1, SZ + 1))
@@ -20,10 +20,7 @@ tmp3 = []
 # generate initial maze and calculate their fitness value
 for t in range(num):
     # generate initial maze
-    while 1:
-        gen.generate()
-        if f1.count_distance(gen.maze) != 0:
-            break
+    gen.generate()
 
     for i in range(1, SZ + 1):
             for j in range(1, SZ + 1):
