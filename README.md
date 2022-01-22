@@ -18,7 +18,7 @@ use dfs to generate ancestor mazes
 randomly pick two mazes to crossover(wheel selection)
 
 ## crs.py
-first denote S as (1, 1, 1), E as (SZ + 1, SZ + 1, SZ + 1) in the maze
+first denote S as (1, 1, 1), E as (SZ + 1, SZ + 1, SZ + 1) in the maze <br>
 i. pick 2 mazes (A and B) <br>
 ii. randomly pick a 2D plain in the maze and rebuild the plain <br>
 iii. maze A builds up the upper part of the new maze; maze B builds up the lower part <br>
