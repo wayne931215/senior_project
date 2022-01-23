@@ -13,7 +13,7 @@ maze = np.ones((SZ + 1, SZ + 1, SZ + 1), dtype = int)
 px = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
 py = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
 pz = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
-index = [0, 1, 2, 3, 4, 5]
+dirr = var.dirr
 
 
 def dfs():
@@ -28,11 +28,11 @@ def dfs():
         if x == SZ and y == SZ and z == SZ:
             break
 
-        random.shuffle(index)
-        for i in index:
-            tx = x + var.dirr[i][0]
-            ty = y + var.dirr[i][1]
-            tz = z + var.dirr[i][2]
+        random.shuffle(dirr)
+        for a, b, c in dirr:
+            tx = x + a
+            ty = y + b
+            tz = z + c
             if not var.proper(tx, ty, tz) or px[tx][ty][tz] != 0:
                 continue
 
@@ -83,6 +83,6 @@ def generate():
         for j in range(1, SZ + 1):
             for k in range(1, SZ + 1):
                 if maze[i][j][k] == 1:
-                    rd = random.randint(0, SZ * SZ * SZ)
+                    rd = random.randint(0, SZ * SZ * SZ - 1)
                     if rd < left:
                         maze[i][j][k] = 0
