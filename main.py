@@ -33,27 +33,24 @@ for t in range(num):
     print(v1, v2, v3)
 
 for generation in range(SZ):
-    print(generation)
     for i in range(num):
         # select and crossover
         x = sel.select(num, fv)
         y = sel.select(num, fv)
-        print(i, "select okay!")
         crs.crossover(maze[x], maze[y])
-        print(i, "crossover okay!")
         for j in range(1, SZ + 1):
             for k in range(1, SZ + 1):
                 for l in range(1, SZ + 1):
                     Maze[i][j][k][l] = crs.maze[j][k][l]
 
-    
+    print("finish crossover", generation)
     # repalce the original datas
     for i in range(num):
         for j in range(1, SZ + 1):
             for k in range(1, SZ + 1):
                 for l in range(1, SZ + 1):
                     maze[i][j][k][l] = Maze[i][j][k][l]
-"""
+
     # mutation
     for i in range(num):
         if mut.mutate(maze[i]) == True:
@@ -63,9 +60,9 @@ for generation in range(SZ):
         v2 = f2.count_crossroads(maze[i])
         v3 = MAX - f3.count_straight_route(maze[i])
         fv[i] = SZ * SZ * (SZ - 1) * 3 - v1 * 200 + v2 / 3 + v3
-    print("finish mutation")
+
+    print("finish mutation", generation)
     
-"""
 maxx = fv[0]
 index = 0
 
