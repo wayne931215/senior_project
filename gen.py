@@ -74,10 +74,11 @@ def generate():
         x = tmpx
         y = tmpy
         cnt += 1
-"""
+
     left = SZ * SZ * SZ * rate - cnt
     if left < 0:
-    
+        retuen
+        
     for i in range(1, SZ + 1):
         for j in range(1, SZ + 1):
             for k in range(1, SZ + 1):
@@ -85,6 +86,3 @@ def generate():
                     rd = random.randint(0, SZ * SZ * SZ)
                     if rd < left:
                         maze[i][j][k] = 0
-
-"""
-generate()
