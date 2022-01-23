@@ -6,14 +6,6 @@ dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
 vis = np.zeros((SZ + 1, SZ + 1, SZ + 1))
 
 
-def proper(x, y, z):
-    if x < 1 or x > SZ or y < 1 or y > SZ or z < 1 or z > SZ:
-        return False
-    elif vis[x][y][z] == 1:
-        return False
-    return True
-
-
 def count_distance(maze):
     qx = [1]
     qy = [1]
@@ -33,7 +25,7 @@ def count_distance(maze):
             tx = x + a
             ty = y + b
             tz = z + c
-            if not proper(tx, ty, tz) or maze[tx][ty][tz] == 1:
+            if not var.proper(tx, ty, tz) or vis[tx][ty][tz] == 1 or maze[tx][ty][tz] == 1:
                 continue
             qx.append(tx)
             qy.append(ty)

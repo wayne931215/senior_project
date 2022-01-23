@@ -1,7 +1,7 @@
 import numpy as np
 import var
 
-dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
+dirr = var.dirr
 SZ = var.SZ
 Maze = np.zeros((SZ + 1, SZ + 1, SZ + 1))
 
