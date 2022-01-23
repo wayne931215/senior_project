@@ -30,9 +30,9 @@ for t in range(num):
     v2 = f2.count_crossroads(maze[t])
     v3 = MAX - f3.count_straight_route(maze[t])
     fv.append(v1 * 200 + v2 / 3 + v3)
-    print(v1, v2, v3)
+    print(fv[t])
 
-for generation in range(SZ):
+for generation in range(10):
     for i in range(num):
         # select and crossover
         x = sel.select(num, fv)
@@ -43,7 +43,6 @@ for generation in range(SZ):
                 for l in range(1, SZ + 1):
                     Maze[i][j][k][l] = crs.maze[j][k][l]
 
-    print("finish crossover", generation)
     # repalce the original datas
     for i in range(num):
         for j in range(1, SZ + 1):
@@ -61,7 +60,7 @@ for generation in range(SZ):
         v3 = MAX - f3.count_straight_route(maze[i])
         fv[i] = SZ * SZ * (SZ - 1) * 3 - v1 * 200 + v2 / 3 + v3
 
-    print("finish mutation", generation)
+    print("finish mutation", generation, "generation")
     
 maxx = fv[0]
 index = 0
@@ -70,3 +69,8 @@ for i in range(1, num):
     if fv[i] > maxx:
         maxx = fv[i]
         index = i
+var.print_maze(maze[index])
+v1 = f1.count_distance(maze[t], 1, 1, 1, 1, SZ)
+v2 = f2.count_crossroads(maze[t])
+v3 = MAX - f3.count_straight_route(maze[t])
+print(v1 * 200 + v2 / 3 + v3)
