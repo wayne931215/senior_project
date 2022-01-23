@@ -18,17 +18,15 @@ def generate():
                     maze[i+1][j+1][k+1] = 0
 
         index_list = []
-        for i in range(1, SZ*SZ*SZ - 2):
+        for i in range(1, SZ*SZ*SZ - 1):
             index_list.append(i)
 
         random.shuffle(index_list)
 
         for i in range(int(SZ*SZ*SZ*ancestor_rate)):
-            # print(index_list[i], end=' ')
             z = index_list[i] // (SZ*SZ)
             y = (index_list[i] % (SZ*SZ)) // SZ
             x = index_list[i] % SZ
-            # print ("(",z, y, x,")", end=' ')
             maze[z+1][y+1][x+1] = 1
 
         if f1.count_distance(maze) != 0:

@@ -38,4 +38,3 @@ def count_straight_route(maze):
                 if k == 1 or maze[i][j][k - 1] == 1:
                     res += walk(i, j, k, 0, 0, 1)
     return res
-
