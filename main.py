@@ -61,3 +61,11 @@ for generation in range(SZ):
         v3 = MAX - f3.count_straight_route(maze[i])
         fv[i] = SZ * SZ * (SZ - 1) * 3 - v1 * 200 + v2 / 3 + v3
 """
+
+maxx = fv[0]
+index = 0
+
+for i in range(1, num):
+    if fv[i] > maxx:
+        maxx = fv[i]
+        index = i
