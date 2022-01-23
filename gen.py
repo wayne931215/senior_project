@@ -1,35 +1,90 @@
 import random
 import var
 import time
-import FitnessValue1 as f1
 import numpy as np
+import FitnessValue1 as f1
+import FitnessValue2 as f2
+import FitnessValue3 as f3
 
-ancestor_rate = 0.5
+
+rate = 0.5
 SZ = var.SZ
-random.seed(time.time())
+maze = np.ones((SZ + 1, SZ + 1, SZ + 1), dtype = int)
+px = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
+py = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
+pz = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
+index = [0, 1, 2, 3, 4, 5]
 
-maze = np.zeros((SZ + 1, SZ + 1, SZ + 1))
+
+def dfs():
+    sx = [1]
+    sy = [1]
+    sz = [1]
+    
+    while sx:
+        x = sx.pop()
+        y = sy.pop()
+        z = sz.pop()
+        if x == SZ and y == SZ and z == SZ:
+            break
+
+        random.shuffle(index)
+        for i in index:
+            tx = x + var.dirr[i][0]
+            ty = y + var.dirr[i][1]
+            tz = z + var.dirr[i][2]
+            if not var.proper(tx, ty, tz) or px[tx][ty][tz] != 0:
+                continue
+
+            px[tx][ty][tz] = x
+            py[tx][ty][tz] = y
+            pz[tx][ty][tz] = z
+            sx.append(tx)
+            sy.append(ty)
+            sz.append(tz)
+
+
 
 def generate():
-    while True:
-        for i in range(SZ):
-            for j in range(SZ):
-                for k in range(SZ):
-                    maze[i+1][j+1][k+1] = 0
 
-        index_list = []
-        for i in range(1, SZ*SZ*SZ - 1):
-            index_list.append(i)
+    random.seed(time.time())
+    for i in range(1, SZ + 1):
+        for j in range(1, SZ + 1):
+            for k in range(1, SZ + 1):
+                    px[i][j][k] = 0
+                    py[i][j][k] = 0
+                    pz[i][j][k] = 0
+                    maze[i][j][k] = 1
+    
+    px[1][1][1] = 1
+    py[1][1][1] = 1
+    pz[1][1][1] = 1
+    maze[1][1][1] = 0
 
-        random.shuffle(index_list)
+    dfs()
+    x = SZ
+    y = SZ
+    z = SZ
+    cnt = 0
+    while x != 1 or y != 1 or z != 1:
+        maze[x][y][z] = 0
+        tmpx = px[x][y][z]
+        tmpy = py[x][y][z]
+        z = pz[x][y][z]
+        x = tmpx
+        y = tmpy
+        cnt += 1
+"""
+    left = SZ * SZ * SZ * rate - cnt
+    if left < 0:
+    
+    for i in range(1, SZ + 1):
+        for j in range(1, SZ + 1):
+            for k in range(1, SZ + 1):
+                if maze[i][j][k] == 1:
+                    rd = random.randint(0, SZ * SZ * SZ)
+                    if rd < left:
+                        maze[i][j][k] = 0
 
-        for i in range(int(SZ*SZ*SZ*ancestor_rate)):
-            z = index_list[i] // (SZ*SZ)
-            y = (index_list[i] % (SZ*SZ)) // SZ
-            x = index_list[i] % SZ
-            maze[z+1][y+1][x+1] = 1
-
-        if f1.count_distance(maze) != 0:
-            return maze
-
+"""
 generate()
