@@ -1,7 +1,10 @@
 SZ = 20
 N = 10
+generation = 10
 MAX = SZ * SZ * (SZ - 1) * 3
 dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
+mrate = 0.5 #mutation rate
+arate = 0.5 #ancestor rate
 
 def print_maze(maze):
     for i in range(1, SZ + 1):

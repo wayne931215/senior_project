@@ -7,7 +7,7 @@ import FitnessValue2 as f2
 import FitnessValue3 as f3
 
 
-rate = 0.5
+rate = var.arate
 SZ = var.SZ
 maze = np.ones((SZ + 1, SZ + 1, SZ + 1), dtype = int)
 px = np.zeros((SZ + 1, SZ + 1, SZ + 1), dtype = int)
