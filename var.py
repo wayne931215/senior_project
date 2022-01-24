@@ -1,6 +1,6 @@
 SZ = 20
 N = 10
-generation = 10
+generation = 20
 MAX = SZ * SZ * (SZ - 1) * 3
 dirr = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]
 mrate = 0.5 #mutation rate

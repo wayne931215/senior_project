@@ -62,7 +62,7 @@ for t in range(var.generation):
         v3 = MAX - f3.count_straight_route(maze[i])
         fv[i] = SZ * SZ * (SZ - 1) * 3 - v1 * 200 + v2 / 3 + v3
 
-    print(t, "generation")
+    print("finish", t, "generation")
     
 maxx = fv[0]
 index = 0

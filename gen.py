@@ -84,5 +84,5 @@ def generate():
             for k in range(1, SZ + 1):
                 if maze[i][j][k] == 1:
                     rd = random.randint(0, SZ * SZ * SZ - 1)
-                    if rd < left:
+                    if rd <= left:
                         maze[i][j][k] = 0
