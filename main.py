@@ -54,13 +54,13 @@ for t in range(var.generation):
     # mutation
     for i in range(num):
         rd = random.random()
-        if rd < var.mrate and mut.mutate(maze[i]) == True:
+        if rd <= var.mrate and mut.mutate(maze[i]) == True:
             maze[i][mut.kx][mut.ky][mut.kz] = 1
 
         v1 = f1.count_distance(maze[i], 1, 1, 1, 1, SZ)
         v2 = f2.count_crossroads(maze[i])
         v3 = MAX - f3.count_straight_route(maze[i])
-        fv[i] = SZ * SZ * (SZ - 1) * 3 - v1 * 200 + v2 / 3 + v3
+        fv[i] = v1 * 200 + v2 / 3 + v3
 
     print("finish", t, "generation")
     
@@ -72,7 +72,4 @@ for i in range(1, num):
         maxx = fv[i]
         index = i
 var.print_maze(maze[index])
-v1 = f1.count_distance(maze[t], 1, 1, 1, 1, SZ)
-v2 = f2.count_crossroads(maze[t])
-v3 = MAX - f3.count_straight_route(maze[t])
-print(v1 * 200 + v2 / 3 + v3)
+print(fv[index])
