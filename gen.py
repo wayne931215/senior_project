@@ -77,7 +77,7 @@ def generate():
 
     left = SZ * SZ * SZ * rate - cnt
     if left < 0:
-        retuen
+        return
         
     for i in range(1, SZ + 1):
         for j in range(1, SZ + 1):
