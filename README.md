@@ -2,9 +2,11 @@
 **Leo is gay.**
 
 ## module
-the size of maze (SZ)
-the number of mazes (N)
-print the maze
+the size of maze (SZ) <br>
+the number of mazes (N) <br>
+print the maze <br>
+ancestor rate of passages (arate) <br>
+rate of mutation (mrate) <br>
 
 ## gen.py
 use dfs to generate ancestor mazes 
