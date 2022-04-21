@@ -55,7 +55,7 @@ for t in range(var.generation):
     for i in range(num):
         rd = random.random()
         if rd <= var.mrate and mut.mutate(maze[i]) == True:
-            maze[i][mut.kx][mut.ky][mut.kz] = 1
+            maze[i][mut.kx][mut.ky][mut.kz] ^= 1
 
         v1 = f1.count_distance(maze[i], 1, 1, 1, 1, SZ)
         v2 = f2.count_crossroads(maze[i])
