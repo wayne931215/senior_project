@@ -19,7 +19,11 @@ def mutate(maze):
                     continue
 
                 if maze[i][j][k] == 1:
+                    x.append(i)
+                    y.append(j)
+                    z.append(k)
                     continue
+                    
                 cnt = 0
                 for a, b, c in dirr:
                     tx = i + a
@@ -29,9 +33,9 @@ def mutate(maze):
                         cnt += 1
                 
                 if cnt == 1:
-                    x.append(tx)
-                    y.append(ty)
-                    z.append(tz)
+                    x.append(i)
+                    y.append(j)
+                    z.append(k)
                     length += 1
     if length == 0:
         return False
