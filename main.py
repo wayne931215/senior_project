@@ -31,7 +31,6 @@ for t in range(num):
     v2 = f2.count_crossroads(maze[t])
     v3 = MAX - f3.count_straight_route(maze[t])
     fv.append(v1 * 200 + v2 / 3 + v3)
-    print(fv[t])
 
 for t in range(var.generation):
     for i in range(num):
@@ -55,7 +54,10 @@ for t in range(var.generation):
     for i in range(num):
         rd = random.random()
         if rd <= var.mrate and mut.mutate(maze[i]) == True:
-            maze[i][mut.kx][mut.ky][mut.kz] ^= 1
+            if maze[i][mut.kx][mut.ky][mut.kz] == 0:
+                maze[i][mut.kx][mut.ky][mut.kz] = 1
+            else:
+                maze[i][mut.kx][mut.ky][mut.kz] = 0
 
         v1 = f1.count_distance(maze[i], 1, 1, 1, 1, SZ)
         v2 = f2.count_crossroads(maze[i])
